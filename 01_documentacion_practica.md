@@ -29,6 +29,7 @@ Primero se creo una carpeta para guardar los archivos relacionados con la practi
 mkdir practica1
 cd practica1
 ```
+<img width="814" height="214" alt="image" src="https://github.com/user-attachments/assets/55fc36cc-09ed-4aa4-9d85-b664401222c2" />
 
 ### Explicacion
 
