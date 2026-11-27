@@ -75,7 +75,8 @@ Ingresamos como usuarios root a mariadb y creamos la base de datos,la tabla y lo
 
 ### Evidencia
 
-**Imagen sugerida:** 
+<img width="814" height="214" alt="image" src="https://github.com/user-attachments/assets/259d79b0-7d30-456e-9b82-d08af56e86b7" />
+
 
 ## 3. Salir de MariaDB
 
@@ -116,6 +117,8 @@ con un tamano mayor a cero.
 
 ### Evidencia
 
+<img width="1057" height="131" alt="image" src="https://github.com/user-attachments/assets/402faea6-3837-4f98-a2cb-821e9a837571" />
+
 
 ## 5. Simular el desastre
 
@@ -136,12 +139,9 @@ SHOW DATABASES;
 
 La base de datos `tienda` ya no debe aparecer en la lista.
 
-### Explicacion
-
-`DROP DATABASE tienda;` elimina la base de datos y su contenido. En esta practica se utiliza para simular un error humano o desastre.
-
 ### Evidencia
 
+<img width="904" height="539" alt="image" src="https://github.com/user-attachments/assets/e4b1796e-eeec-48ef-bb67-c43678b645a1" />
 
 
 ## 6. Restaurar el respaldo
@@ -183,6 +183,8 @@ Sofia Diaz
 ```
 
 ### Evidencia
+
+<img width="840" height="133" alt="image" src="https://github.com/user-attachments/assets/d58c3af4-c365-45bf-b47a-1d0a68ab6db7" />
 
 
 # PARTE B: Recuperacion de datos posteriores al respaldo usando binlog
@@ -227,6 +229,10 @@ log_bin    ON
 
 ### Evidencia
 
+<img width="906" height="973" alt="image" src="https://github.com/user-attachments/assets/e44601af-4993-4622-ad25-603d7821a1c4" />
+<img width="911" height="155" alt="image" src="https://github.com/user-attachments/assets/ba5cd559-094c-404e-a2ba-5c875378a1f7" />
+<img width="901" height="277" alt="image" src="https://github.com/user-attachments/assets/80188c9e-068d-4446-9f93-0cc7f232afb5" />
+
 
 
 ## 9. Crear un respaldo con posicion del binlog
@@ -243,11 +249,7 @@ mariadb-dump -u root -p --databases tienda --flush-logs --master-data=2 > tienda
 
 `--master-data=2` guarda dentro del respaldo la informacion de la posicion del binlog que corresponde al momento del respaldo. Esto permite saber desde que punto se deben aplicar los cambios posteriores.
 
-Para localizar la informacion se utilizo:
 
-```bash
-grep "CHANGE MASTER" tienda_pitr.sql
-```
 
 ### Comando adicional aprendido
 
@@ -261,6 +263,7 @@ grep "CHANGE MASTER" tienda_pitr.sql
 
 ### Evidencia
 
+<img width="991" height="116" alt="image" src="https://github.com/user-attachments/assets/6a743199-0a4f-4e07-b9fd-7cec3d600709" />
 
 
 ## 10. Agregar datos posteriores al respaldo
@@ -288,6 +291,7 @@ Ahora existen cinco clientes del respaldo original y dos clientes nuevos.
 
 ### Evidencia
 
+<img width="963" height="560" alt="image" src="https://github.com/user-attachments/assets/38a13e83-2d60-422f-8f2b-a02b7cb67a18" />
 
 
 ## 11. Simular el error
@@ -304,6 +308,7 @@ SELECT COUNT(*) FROM clientes;
 
 ### Evidencia
 
+<img width="1008" height="231" alt="image" src="https://github.com/user-attachments/assets/f25b818c-74f4-43c6-9a3e-c0af677d5375" />
 
 
 
@@ -322,6 +327,7 @@ Se puede comprobar:
 ```bash
 mariadb -u root -p -e "SELECT * FROM tienda.clientes;"
 ```
+<img width="1043" height="300" alt="image" src="https://github.com/user-attachments/assets/12aa7835-9aca-4a12-9f27-3b0481ab0b3e" />
 
 ---
 
@@ -370,6 +376,9 @@ sudo mariadb-binlog /var/lib/mysql/mariadb-bin.000002 | less
 
 ### Evidencia
 
+<img width="953" height="142" alt="image" src="https://github.com/user-attachments/assets/61e50f77-b360-4d20-bd28-1a158d0f4dee" />
+
+
 ## 14. Verificar la recuperacion final
 
 Se ejecuto:
@@ -393,6 +402,8 @@ Deben aparecer siete clientes:
 Esto demuestra que se recuperaron los datos del respaldo y tambien los cambios posteriores al respaldo, pero no el `DELETE` accidental.
 
 ### Evidencia
+
+<img width="1010" height="319" alt="image" src="https://github.com/user-attachments/assets/b96ced6b-627a-4743-8b7c-09a2cda096b6" />
 
 
 # Comandos adicionales aprendidos
